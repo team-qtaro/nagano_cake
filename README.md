@@ -25,8 +25,7 @@ Things you may want to cover:
 * ...
 
 
-vvvv
-masayoshi test
+
 
 aaaa
 
