@@ -23,8 +23,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-aaaa
-
-cccc
-bbbb
