@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
- resources :items, except: [:destory]
- resources :customers, except: [:new, :create, :destory]
-  get 'customers/confirm' => "customers#confirm"
-  get 'customers/quit'    => "customers#quit"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+ namespace :admin do
+ end
+ namespace :public do
+ end
+ 
 end
-a
