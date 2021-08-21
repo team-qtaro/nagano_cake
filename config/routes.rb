@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   }
 
   devise_for :customers, controllers: {
-    sessions: 'customers/sessions',
-    passwords: 'customers/passwords',
-    registrations: 'customers/registrations'
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
   }
 
   namespace :admin do
+
   end
 
   scope module: :public do
