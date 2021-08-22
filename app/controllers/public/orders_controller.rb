@@ -1,6 +1,8 @@
 class Public::OrdersController < ApplicationController
   def new
+    @customers = current_customer
     @order = Order.new
+
   end
 
   def index
@@ -16,5 +18,10 @@ class Public::OrdersController < ApplicationController
   end
 
   def complete
+  end
+
+  private
+  def orders_params
+     params.require(:order).permit(:shipping_postal_code,:payment_method)
   end
 end
