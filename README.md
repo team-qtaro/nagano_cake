@@ -1,4 +1,8 @@
 # README test
+<<<<<<< HEAD
+test text!
+=======
+>>>>>>> a1b02fdcb2b81afcee755b239355d397dbc8331c
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
