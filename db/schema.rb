@@ -10,9 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_011338) do
+ActiveRecord::Schema.define(version: 2021_08_22_043824) do
 
   create_table "cart_items", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "item_id"
+    t.integer "customer_id"
+    t.integer "quantity"
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string "last_name"
+    t.string "first_name"
+    t.string "last_name_kana"
+    t.string "first_name_kana"
+    t.string "email"
+    t.string "encrypted_password"
+    t.string "postal_code"
+    t.string "address"
+    t.string "telephone_number"
+    t.boolean "is_deleted"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.integer "genre_id"
+    t.string "name"
+    t.string "image_id"
+    t.text "description"
+    t.integer "price"
+    t.boolean "is_stopped"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -20,6 +49,9 @@ ActiveRecord::Schema.define(version: 2021_08_20_011338) do
   create_table "send_addresses", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "send_address"
+    t.string "send_name"
+    t.string "send_postal_code"
   end
 
 end
