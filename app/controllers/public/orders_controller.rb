@@ -12,6 +12,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new(orders_params)
   end
 
   def create
@@ -22,6 +23,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def orders_params
-     params.require(:order).permit(:shipping_postal_code,:payment_method)
+     params.require(:order).permit(:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
   end
 end
