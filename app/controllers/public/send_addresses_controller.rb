@@ -6,8 +6,8 @@ class Public::SendAddressesController < ApplicationController
     end
     
     def create
-        @send_addresses = SendAddress.new(send_addresses_params)
-        if @send_addresses.save
+        @send_address = SendAddress.new(send_addresses_params)
+        if @send_address.save
             render "index"
         else
             @send_addresses = SendAddress.all
@@ -16,20 +16,25 @@ class Public::SendAddressesController < ApplicationController
     end
     
     def destroy
-        @send_addresses = User.find(params[:id])
-        @send_addresses.destroy
+        @send_address = User.find(params[:id])
+        @send_address.destroy
     end
 
     def edit
-        #@send_addresses = SendAddress.find(params[:id])
-        #redirect_to send_addresses_path
+        @send_address = SendAddress.find(params[:id])
     end
 
     def update
+    @send_address = SendAddress.find(params[:id])
+      if @send_address.update(send_addresses_params)
+        redirect_to send_addresses_path, notice: 'You have updated successfully.'
+      else
+        render "edit"
+      end
     end
     
     private
     def send_addresses_params
-        params.permit(:send_postal_code,:send_address,:send_name)
+        params.permit(:send_postal_code,:send_name,:send_address)
     end
 end

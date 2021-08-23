@@ -38,9 +38,9 @@
                 <% end %>
             </table>
             <div class="row mb-3">
-                    <div class="col-md2 themed-grid-col btn btn-primary" style="height: 40px;">
-                            買い物を続ける
-                    </div>
+                    <%= link_to root_path,class:"btn btn-primary" do %>
+                    買い物を続ける
+                    <% end %>
                     <div class="col-md-7 themed-grid-col">
                             
                     </div>
@@ -53,5 +53,5 @@
                     </div>
                     
             </div>
-        <button type="button" class="btn btn-success">情報入力に進む</button>
+            <%= link_to "#",class:"btn btn-success" do %>情報入力に進む<% end %>
 </div>

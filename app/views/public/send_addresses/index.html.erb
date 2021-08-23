@@ -47,7 +47,7 @@
               <%= f.send_name %>
             </td>
               <td class="col-3">
-              <%= link_to edit_send_address_path(@send_addresses), class:"btn btn-success ml-3"  do %>編集<% end %>  
+              <%= link_to edit_send_address_path(f.id), class:"btn btn-success ml-3"  do %>編集<% end %>  
               <%= link_to send_addresses_path,  method: :delete,class:"btn btn-danger ml-3"  do %>削除<% end %>
             </td>
           </tr>
