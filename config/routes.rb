@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+ scope module: :public do
+   resources :orders,only: [:index,:show,:new] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+      post 'orders/confirm' => 'orders#create'
+    end
+  end
+  namespace :admin do
+    resources :genres,only: [:index,:new,:create,:edit,:update]
+  end
 
   namespace :admin do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
@@ -23,6 +35,7 @@ Rails.application.routes.draw do
     resources :customers, only: [:show, :edit, :update]
     get 'customers/confirm'
     patch 'customers/quit'
+
   end
 
 end
