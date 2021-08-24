@@ -1,61 +1,67 @@
 <div class="container px-5 px-sm-0">
-  <div class="col-md-8 offset-md-1">
-    <h4>注文履歴詳細</h4>
-    <table class="table table-hover table-inverse">
-      <tr>
-        <th class= "order_article">購入者</th>
-        <td><%= @order.customers.last_name %> <%= @order.customers.first_name %></td>
-      </tr>
-
-      <tr>
-        <th class= "order_article">購入者</th>
-        <td><%= @order.customers.last_name + "" + @order.customers.first_name %></td>
-      </tr>
-
-      <tr>
-        <th class= "order_article">配送先</th>
-        <td>〒<%= @order.postal_code + " " + @order.address %><br><%= @order.shipping_name %></td>
-      </tr>
-
-      <tr>
-        <th class= "order_article">支払方法</th>
-        <td><%= @order.payment_method %></td>
-      </tr>
-
-      <tr>
-        <th class= "order_article">注文ステータス</th>
-        <td>
-          <%= form_with model: @order do |f| %>
-            <td><%= f.select :status, [["入金待ち", 0], ["入金確認", 1], ["製作中", 2], ["発送準備中", 3], ["発送済み", 4]] %></td>
-            <td><%= f.submit '更新', class:"btn btn-primary btn-sm"%></td>
-          <% end %>
-        </td>
-      </tr>
-
-      <tbody>
+  <div class="row">
+    <div class="col-md-8 offset-md-1">
+      <h4>注文履歴詳細</h4>
+      <table class="table table-hover table-inverse">
         <tr>
-          <td>商品名</td>
-          <td>単価(税込)</td>
-          <td>数量</td>
-          <td>小計</td>
-          <td>制作ステータス</td>
+          <th class= "order_article">購入者</th>
+          <td><%= @order.customers.last_name %> <%= @order.customers.first_name %></td>
         </tr>
 
-        <% @order_items.each do |item| %>
-          <tr>
-            <td><%= item.items.item_name %></td>
-            <td><%= item.order_details.tax_in_price %></td>
-            <td><%= item.order_details.quantity %></td>
-            <td><%= ((item.order_details.tax_in_price)*(item.order_details.quantity)) %> </td>
+        <tr>
+          <th class= "order_article">購入者</th>
+          <td><%= @order.customers.last_name + "" + @order.customers.first_name %></td>
+        </tr>
 
-            <%= form_with model: item do |f| %>
-              <td><%= f.select :making_status, [["製作不可", 0], ["製作待ち", 1], ["製作中", 2], ["製作完了", 3]] %></td>
+        <tr>
+          <th class= "order_article">配送先</th>
+          <td>〒<%= @order.postal_code + " " + @order.address %><br><%= @order.shipping_name %></td>
+        </tr>
+
+        <tr>
+          <th class= "order_article">支払方法</th>
+          <td><%= @order.payment_method %></td>
+        </tr>
+
+        <tr>
+          <th class= "order_article">注文ステータス</th>
+          <td>
+            <%= form_with model: @order do |f| %>
+              <td><%= f.select :status, [["入金待ち", 0], ["入金確認", 1], ["製作中", 2], ["発送準備中", 3], ["発送済み", 4]] %></td>
               <td><%= f.submit '更新', class:"btn btn-primary btn-sm"%></td>
             <% end %>
+          </td>
+        </tr>
 
+        <tbody>
+          <tr>
+            <td>商品名</td>
+            <td>単価(税込)</td>
+            <td>数量</td>
+            <td>小計</td>
+            <td>制作ステータス</td>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+
+          <% @order_items.each do |item| %>
+            <tr>
+              <td><%= item.items.item_name %></td>
+              <td><%= item.order_details.tax_in_price %></td>
+              <td><%= item.order_details.quantity %></td>
+              <td><%= ((item.order_details.tax_in_price)*(item.order_details.quantity)) %> </td>
+
+              <%= form_with model: item do |f| %>
+                <td><%= f.select :making_status, [["製作不可", 0], ["製作待ち", 1], ["製作中", 2], ["製作完了", 3]] %></td>
+                <td><%= f.submit '更新', class:"btn btn-primary btn-sm"%></td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <h4>商品合計      <%= @order.total_payment %>円</h4>
+      <h4>送料　　　    <%= @order.shipping_fee %>円</h4>
+      <h4>請求金額合計　<%= (@order.total_payment)+(@order.shipping_fee) %>円</h4>
+    </div>
   </div>
 </div>
