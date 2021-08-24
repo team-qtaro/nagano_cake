@@ -10,3 +10,15 @@ Admin.create!(
   email: 'admin1@naganocake.com',
   password: 'admin1',
 )
+
+Customer.create!(
+	email: 'customer1@naganocake.com',
+	password: 'customer1',
+	last_name: '長野',
+	first_name: '景子',
+	last_name_kana: 'ナガノ',
+	first_name_kana: 'ケイコ',
+	postal_code: '1234567',
+	address: '東京都渋谷区宇田川町21-6',
+  telephone_number: '09012345678',
+)
