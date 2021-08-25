@@ -22,3 +22,61 @@ Customer.create!(
 	address: '東京都渋谷区宇田川町21-6',
   telephone_number: '09012345678',
 )
+Customer.create!(
+	email: 'customer2@naganocake.com',
+	password: 'customer2',
+	last_name: '永野',
+	first_name: '圭介',
+	last_name_kana: 'ナガノ',
+	first_name_kana: 'ケイスケ',
+	postal_code: '7654321',
+	address: '東京都新宿区新宿4-1-9',
+  telephone_number: '08012345678',
+)
+
+Genre.create!(
+	genre_name: 'ケーキ',
+)
+Genre.create!(
+	genre_name: 'プリン',
+)
+Genre.create!(
+	genre_name: '焼き菓子',
+)
+
+Item.create!(
+	name: 'ニューヨークチーズケーキ',
+	description: '数種のチーズの特性を活かしてブレンドし焼き上げたニューヨークチーズケーキ',
+	price: '420',
+	is_stopped: 'false',
+)
+Item.create!(
+	name: '焼き栗モンブラン',
+	description: 'なめらかな生クリームに濃厚な焼き栗ペーストをたっぷり使用した栗の風味を味わうモンブラン',
+	price: '500',
+	is_stopped: 'false',
+)
+Item.create!(
+	name: 'プリンアラモード',
+	description: 'ラズベリーやオレンジ、メロンなどの色鮮やかなフルーツと共に、バニラ香るプリンが楽しめる',
+	price: '250',
+	is_stopped: 'false',
+)
+Item.create!(
+	name: '抹茶プリン',
+	description: '北海道産生クリームでまろやかに仕上げているので、苦味が優しく、お子様でも美味しく召し上がって頂けます',
+	price: '330',
+	is_stopped: 'false',
+)
+Item.create!(
+	name: 'マカロン',
+	description: '素材の味を活かしたジャムやコンポート、果実のピューレを使用したクリームをサンドしています',
+	price: '270',
+	is_stopped: 'false',
+)
+Item.create!(
+	name: 'マドレーヌ',
+	description: 'バターとバニラの風味豊かなしっとり食感のマドレーヌ',
+	price: '180',
+	is_stopped: 'false',
+)
