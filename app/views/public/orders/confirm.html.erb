@@ -8,12 +8,43 @@
       <th>小計</th>
     </tr>
   </thead>
+  <tbody>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tbody>
 </table>
+<div class="col-xs-4">
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th>送料</th>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>商品合計</th>
+      <td></td>
+    </tr>
+    <tr>
+      <th>請求金額</th>
+      <td></td>
+    </tr>
+  </thead>
+</table>
+</div>
 <h4>支払い方法</h4>
-<p><%= @order.payment_method %></p>
+  <p><%= @order.payment_method %></p>
 <h4>お届け先</h4>
-<p>
-  <%= @order.shipping_postal_code %>
-  <%= @order.shipping_name %>
-  <%=@order.shipping_address %>
-</p>
+  <p>
+    〒<%= @order.shipping_postal_code %>
+    <%= @order.shipping_name %>
+    <%= @order.shipping_address %>
+ </p>
+<%= form_for @order,method: :post,url: "/orders" do |f| %>
+  <%= f.hidden_field :payment_method %>
+  <%= f.hidden_field :shipping_postal_code %>
+  <%= f.hidden_field :shipping_name %>
+  <%= f.hidden_field:shipping_address %>
+  <%=f.submit '確認',class: "btn btn-primary" %>
+<% end %>

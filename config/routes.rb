@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
- scope module: :public do
-   resources :orders,only: [:index,:show,:new] do
+  scope module: :public do
+    resources :orders,only: [:index,:show,:new,:create] do
       collection do
         post 'confirm'
         get 'complete'
       end
-      post 'orders/confirm' => 'orders#create'
     end
   end
+  
   namespace :admin do
     resources :genres,only: [:index,:new,:create,:edit,:update]
   end
