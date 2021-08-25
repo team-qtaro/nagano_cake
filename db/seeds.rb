@@ -10,3 +10,11 @@ Admin.create!(
   email: 'admin1@naganocake.com',
   password: 'admin1',
 )
+
+Genre.create!(
+  genre_name: 'ケーキ',
+)
+
+Genre.create!(
+  genre_name: 'キャンディ',
+)
