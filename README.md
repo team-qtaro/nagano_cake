@@ -1,8 +1,10 @@
 <<<<<<< HEAD
+# README test
+test text!
+
+=======
 # README
 test text!!
-=======
-# README test
 
 test text!
 
