@@ -4,7 +4,7 @@ class Public::CartItemsController < ApplicationController
     end
     
     def destroy
-        @cart_items = Item.all
+        @cart_items = CartItem.all
         @cart_items.destroy
         redirect_to cart_items_path
     end
