@@ -10,3 +10,9 @@ Admin.create!(
   email: 'admin1@naganocake.com',
   password: 'admin1',
 )
+Item.create!(
+  name: 'cake',
+  genre_id: '1',
+  price: "1000",
+  )
+  

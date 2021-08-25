@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+ scope module: :public do
+   resources :orders,only: [:index,:show,:new] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+      post 'orders/confirm' => 'orders#create'
+    end
+  end
+  namespace :admin do
+    resources :genres,only: [:index,:new,:create,:edit,:update]
+  end
 
  scope module: :public do
     resources :send_addresses
@@ -19,11 +31,9 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
-
-
   scope module: :public do
     root to: 'homes#top'
-    get "about" => "homes#about" , as: "about"
+    get "about" => "homes#about", as: "about"
   end
 
 end
