@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :genres,only: [:index,:new,:create,:edit,:update]
   end
 
+ scope module: :public do
+    resources :send_addresses
+    resources :cart_items
+    delete 'cart_items' => 'cart_items#reset'
+ end
+
   namespace :admin do
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
