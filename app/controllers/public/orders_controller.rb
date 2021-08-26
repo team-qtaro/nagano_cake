@@ -1,13 +1,17 @@
 class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
+    @customer = current_customer
   end
 
   def index
+    # @customer = Customer.find(params[:id])
+    # @order = @customers.order
     @order = Order.all#とりあえず指定してる
   end
 
   def show
+    # @order = Order.find(params[:id])
   end
 
   def confirm

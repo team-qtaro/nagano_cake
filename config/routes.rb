@@ -7,21 +7,12 @@ Rails.application.routes.draw do
       end
     end
   end
-  
+
   namespace :admin do
     resources :genres,only: [:index,:new,:create,:edit,:update]
   end
 
- scope module: :public do
-    resources :send_addresses
-    resources :cart_items
-    delete 'cart_items' => 'cart_items#reset'
- end
 
-  namespace :admin do
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
-  end
-  
   devise_for :admins, controllers: {
     sessions: 'admin/sessions',
     passwords: 'admin/passwords',
@@ -34,14 +25,30 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
 
-
   scope module: :public do
     root to: 'homes#top'
-    get "about" => "homes#about" , as: "about"
+    get "about" => "homes#about", as: "about"
+
     resources :customers, only: [:show, :edit, :update]
-    get 'customers/confirm'
     patch 'customers/quit'
 
+    resources :orders,only: [:index,:show,:new] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    post 'orders/confirm' => 'orders#create'
+
+    resources :send_addresses
+    resources :cart_items
+    delete 'cart_items' => 'cart_items#reset'
+    end
+  end
+
+  namespace :admin do
+    resources :genres, only: [:index,:new,:create,:edit,:update]
+    resources :orders, only: [:index,:show]
+    resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
 
 end
