@@ -15,7 +15,7 @@
                     </tr>
                 </thead>
                 <% @cart_items.each do |f| %>
-    
+
                 <tbody>
                     <tr>
                         <td class="col-4">
@@ -45,16 +45,16 @@
                         <%= link_to root_path,class:"btn btn-primary" do %>買い物を続ける<% end %>
                     </div>
                     <div class="col-md-7 themed-grid-col">
-                            
+
                     </div>
-                    
+
                     <div class="col-md-3 themed-grid-col ">
                         <table class="table table-bordered">
                             <th colspan="col">合計金額</th>
                             <th colspan="col"></th>
                         </table>
                     </div>
-                    
+
             </div>
             <div>
             <%= link_to new_order_path,class:"btn btn-success" do %>情報入力に進む<% end %>

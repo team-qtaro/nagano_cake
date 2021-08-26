@@ -1,4 +1,5 @@
   <div class='container'>
+    
   <h4>ジャンル一覧、追加</h4>
     <%= form_with model:@genre,url:'/admin/genres',local:true do |t| %>
       <div class="form-group">
@@ -7,7 +8,6 @@
         <%=t.submit '新規投稿',class: "btn btn-success" %>
       </div>
     <% end %>
-
     <div class='row'>
       <div class='col-md-5'>
         <table class='table'>

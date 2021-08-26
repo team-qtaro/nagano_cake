@@ -1,6 +1,5 @@
 class Public::OrdersController < ApplicationController
   def new
-    @customers = current_customer
     @order = Order.new
   end
 
@@ -18,8 +17,11 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(orders_params)
-    @order.save
-    redirect_to complete_orders_path
+    if @order.save
+       redirect_to complete_orders_path
+    else
+      render :new
+    end
   end
 
   def complete

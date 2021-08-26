@@ -1,10 +1,10 @@
 class Public::SendAddressesController < ApplicationController
-        
+
     def index
         @send_addresses = SendAddress.all
         @send_address_new = SendAddress.new
     end
-    
+
     def create
         @send_address = SendAddress.new(send_addresses_params)
         @send_addresses = SendAddress.all
@@ -15,7 +15,7 @@ class Public::SendAddressesController < ApplicationController
             redirect_to send_addresses_path
         end
     end
-    
+
     def destroy
         @send_address = SendAddress.find(params[:id])
         @send_address.destroy
@@ -34,7 +34,7 @@ class Public::SendAddressesController < ApplicationController
         render "edit"
       end
     end
-    
+
     private
     def send_addresses_params
         params.require(:send_address).permit(:send_postal_code,:send_name,:send_address)
