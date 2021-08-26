@@ -25,11 +25,11 @@ Rails.application.routes.draw do
         get 'complete'
       end
     post 'orders/confirm' => 'orders#create'
+    end
 
     resources :send_addresses
     resources :cart_items
     delete 'cart_items' => 'cart_items#reset'
-    end
   end
 
   namespace :admin do
@@ -37,5 +37,4 @@ Rails.application.routes.draw do
     resources :orders, only: [:index,:show]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
-
 end
