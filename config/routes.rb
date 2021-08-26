@@ -1,23 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :admins, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
-
-  devise_for :customers, controllers: {
-    sessions: 'public/sessions',
-    passwords: 'public/passwords',
-    registrations: 'public/registrations'
-  }
-
   scope module: :public do
     root to: 'homes#top'
     get "about" => "homes#about", as: "about"
 
-    resources :customers, only: [:show, :edit, :update]
-    patch 'customers/quit'
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
+    get 'customers/quit' => 'customers#confirm'
+    patch 'customers' => 'customers#quit'
 
     resources :orders,only: [:index,:show,:new] do
       collection do
@@ -37,4 +28,15 @@ Rails.application.routes.draw do
     resources :orders, only: [:index,:show]
     resources :items, only: [:index, :new, :create, :show, :edit, :update]
   end
+
+  devise_for :admins, :skip =>[:registrations, :passwords], controllers: {
+    sessions: 'admin/sessions',
+  }
+
+  devise_for :customers, controllers: {
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
+  }
+
 end
