@@ -22,11 +22,13 @@ Rails.application.routes.draw do
         get 'complete'
       end
     post 'orders/confirm' => 'orders#create'
+  end
 
     resources :send_addresses
     resources :cart_items
     delete 'cart_items' => 'cart_items#reset'
-    end
+    
+    resources :items
   end
 
   devise_for :customers, controllers: {
