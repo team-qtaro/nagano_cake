@@ -6,18 +6,15 @@ Rails.application.routes.draw do
     registrations: 'admin/registrations'
   }
 
-  devise_for :customers, controllers: {
-    sessions: 'public/sessions',
-    passwords: 'public/passwords',
-    registrations: 'public/registrations'
-  }
-
   scope module: :public do
     root to: 'homes#top'
     get "about" => "homes#about", as: "about"
-
-    resources :customers, only: [:show, :edit, :update]
-    patch 'customers/quit'
+    
+    get 'customers/mypage' => 'customers#show'
+    get 'customers/edit' => 'customers#edit'
+    patch 'customers' => 'customers#update'
+    get 'customers/quit' => 'customers#confirm'
+    patch 'customers' => 'customers#quit'
 
     resources :orders,only: [:index,:show,:new] do
       collection do
@@ -32,10 +29,16 @@ Rails.application.routes.draw do
     end
   end
 
+  devise_for :customers, controllers: {
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
+  }
+
   namespace :admin do
     resources :genres, only: [:index,:new,:create,:edit,:update]
     resources :orders, only: [:index,:show]
-    resources :items, only: [:index, :new, :create, :show, :edit, :update]
+    resources :items, only: [:index, :new, :create, :show, :edit, :resources, :update]
   end
 
 end
