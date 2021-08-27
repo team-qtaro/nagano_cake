@@ -11,6 +11,9 @@ Admin.create!(
   password: 'admin1',
 )
 
+
+
+
 Customer.create!(
 	email: 'customer1@naganocake.com',
 	password: 'customer1',
@@ -86,3 +89,4 @@ Item.create!(
 	price: '180',
 	is_stopped: 'false',
 )
+
