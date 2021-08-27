@@ -5,7 +5,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-
+    @order = current_user.orders
+    @order_items = current.user.orders.order_details
   end
 
 end
