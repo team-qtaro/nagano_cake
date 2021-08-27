@@ -1,2 +1,10 @@
 <h1>Public::Customers#edit</h1>
 <p>Find me in app/views/public/customers/edit.html.erb</p>
+
+
+
+def change
+     change_column_default :orders, :status, from: nil, to: "0"
+     change_column_default :orders, :payment_method, from: nil, to: "0"
+  end
+  
