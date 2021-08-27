@@ -1,5 +1,10 @@
 class Item < ApplicationRecord
+<<<<<<< HEAD
 
+=======
+    has_many :cart_items
+ 
+>>>>>>> b3b1e50286a792ecef638f78a67d5177eb93ed67
  attachment :image
 
  belongs_to :genre
