@@ -90,28 +90,3 @@ Item.create!(
 	is_stopped: 'false',
 )
 
-CartItem.create!(
-	quantity: '1',
-	item_id: '1',
-	customer_id: '1'
-	)
-	CartItem.create!(
-	quantity: '1',
-	item_id: '2',
-	customer_id: '1'
-	)
-	CartItem.create!(
-	quantity: '1',
-	item_id: '3',
-	customer_id: '1'
-	)
-	CartItem.create!(
-	quantity: '1',
-	item_id: '4',
-	customer_id: '1'
-	)
-	CartItem.create!(
-	quantity: '1',
-	item_id: '5',
-	customer_id: '1'
-	)
