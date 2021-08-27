@@ -41,6 +41,7 @@ Rails.application.routes.draw do
     resources :genres, only: [:index,:new,:create,:edit,:update]
     resources :orders, only: [:index,:show]
     resources :items, only: [:index, :new, :create, :show, :edit, :resources, :update]
+    resources :customers, only: [:index, :show, :new, :update]
   end
 
 end
