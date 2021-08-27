@@ -86,3 +86,4 @@ Item.create!(
 	price: '180',
 	is_stopped: 'false',
 )
+

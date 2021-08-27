@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     resources :send_addresses
     resources :cart_items
     delete 'cart_items' => 'cart_items#reset'
+
+    resources :items
   end
 
   namespace :admin do
