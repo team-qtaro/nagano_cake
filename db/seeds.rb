@@ -45,39 +45,53 @@ Genre.create!(
 )
 
 Item.create!(
+  genre_id: '1',
 	name: 'ニューヨークチーズケーキ',
 	description: '数種のチーズの特性を活かしてブレンドし焼き上げたニューヨークチーズケーキ',
 	price: '420',
 	is_stopped: 'false',
 )
 Item.create!(
+  genre_id: '1',
 	name: '焼き栗モンブラン',
 	description: 'なめらかな生クリームに濃厚な焼き栗ペーストをたっぷり使用した栗の風味を味わうモンブラン',
 	price: '500',
 	is_stopped: 'false',
 )
 Item.create!(
+  genre_id: '2',
 	name: 'プリンアラモード',
 	description: 'ラズベリーやオレンジ、メロンなどの色鮮やかなフルーツと共に、バニラ香るプリンが楽しめる',
 	price: '250',
 	is_stopped: 'false',
 )
 Item.create!(
+  genre_id: '2',
 	name: '抹茶プリン',
 	description: '北海道産生クリームでまろやかに仕上げているので、苦味が優しく、お子様でも美味しく召し上がって頂けます',
 	price: '330',
 	is_stopped: 'false',
 )
 Item.create!(
+  genre_id: '3',
 	name: 'マカロン',
 	description: '素材の味を活かしたジャムやコンポート、果実のピューレを使用したクリームをサンドしています',
 	price: '270',
 	is_stopped: 'false',
 )
 Item.create!(
+  genre_id: '3',
 	name: 'マドレーヌ',
 	description: 'バターとバニラの風味豊かなしっとり食感のマドレーヌ',
 	price: '180',
 	is_stopped: 'false',
+)
+Order.create!(
+	customer_id: '1',
+	shipping_postal_code: '1111111',
+	shipping_address: '東京',
+	shipping_name: '間瀬雅',
+	payment_method: 'クレジットカード',
+	status: '1',
 )
 

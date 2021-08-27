@@ -5,22 +5,22 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
-    # @customer = Customer.find(params[:id])
-    # @order = @customers.order
-    @order = Order.all#とりあえず指定してる
+    @orders = Order.all
   end
 
   def show
-    # @order = Order.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def confirm
     @order = Order.new(orders_params)
-
+    @customer = current_customer
   end
 
   def create
     @order = Order.new(orders_params)
+    @order.customer_id = current_customer.id
+    @customer = current_customer
     if @order.save
        redirect_to complete_orders_path
     else
@@ -33,6 +33,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def orders_params
-     params.require(:order).permit(:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
+     params.require(:order).permit(:customer_id,:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
   end
 end
