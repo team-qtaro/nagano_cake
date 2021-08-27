@@ -1,12 +1,13 @@
 class Public::CartItemsController < ApplicationController
     def index
         @cart_items = CartItem.all
-        @item = Item.find_by(params[:name])
-        
+        @item = Item.find_by(params[:id])
+        @total_price = Item.all.sum(:price)
     end
     
     def destroy
-        @cart_items = CartItem.find_by(cart_item_id: 1)
+        
+        @cart_items = CartItem.find_by(params[:id])
         @cart_items.destroy
         redirect_to cart_items_path
     end

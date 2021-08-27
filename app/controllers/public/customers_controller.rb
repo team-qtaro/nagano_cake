@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+
   def show
     @customer = current_customer
   end
@@ -15,7 +16,5 @@ class Public::CustomersController < ApplicationController
 
   def quit
   end
-  
-  
-  
+
 end
