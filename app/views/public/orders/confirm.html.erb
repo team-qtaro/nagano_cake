@@ -1,19 +1,56 @@
-<h4>注文情報確認</h4>
-<table class="table table-bordered">
-  <thead class="thead-light">
-    <tr>
-      <th>商品名</th>
-      <th>単価</th>
-      <th>数量</th>
-      <th>小計</th>
-    </tr>
-  </thead>
-</table>
-<h4>支払い方法</h4>
-<p><%= @order.payment_method %></p>
-<h4>お届け先</h4>
-<p>
-  <%= @order.shipping_postal_code %>
-  <%= @order.shipping_name %>
-  <%=@order.shipping_address %>
-</p>
+<div class="container">
+<h2><span class="badge bg-secondary text-white mb-3">注文情報確認</span></h2>
+  <div class='row'>
+    <div class='col-md-7 '>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tbody>
+      </table>
+    </div>
+      <div class='col-md-3'>
+         <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>送料</th>
+              <td>800</td>
+            </tr>
+            <tr>
+              <th>商品合計</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>請求金額</th>
+              <td></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+  </div>
+  <h4>支払い方法</h4>
+    <p><%= @order.payment_method %></p>
+  <h4>お届け先</h4>
+    <p>
+      <%= @order.shipping_postal_code %>
+      <%= @order.shipping_name %>
+      <%= @order.shipping_address %>
+   </p>
+  <%= form_for @order,method: :post,url: "/orders" do |f| %>
+    <%= f.hidden_field :payment_method %>
+    <%= f.hidden_field :shipping_postal_code %>
+    <%= f.hidden_field :shipping_name %>
+    <%= f.hidden_field :shipping_address %>
+    <%=f.submit '確認',class: "btn btn-primary" %>
+  <% end %>
+</div>

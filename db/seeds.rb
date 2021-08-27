@@ -86,4 +86,12 @@ Item.create!(
 	price: '180',
 	is_stopped: 'false',
 )
+Order.create!(
+	customer_id: '1',
+	shipping_postal_code: '1111111',
+	shipping_address: '東京',
+	shipping_name: '間瀬雅',
+	payment_method: 'クレジットカード',
+	status: '1',
+)
 

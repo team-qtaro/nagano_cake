@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    resources :orders,only: [:index,:show,:new,:create] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
+  end
+
+  namespace :admin do
+    resources :genres,only: [:index,:new,:create,:edit,:update]
+  end
+
 
   scope module: :public do
     root to: 'homes#top'
