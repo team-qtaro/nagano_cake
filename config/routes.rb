@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     get 'customers/edit' => 'customers#edit'
     patch 'customers' => 'customers#update'
     get 'customers/quit' => 'customers#confirm'
-    patch 'customers' => 'customers#quit'
+    patch 'customers/quit' => 'customers#quit'
 
     resources :orders,only: [:index,:show,:new] do
       collection do
