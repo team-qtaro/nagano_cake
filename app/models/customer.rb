@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
 
   has_many :order, dependent: :destroy
 
+
 end
