@@ -19,10 +19,10 @@
                 <tbody>
                     <tr>
                         <td class="col-4">
-                        　 <%= f.name %>
+                        　 <%= @item.name %>
                         </td>
                         <td class="col-2">
-                        　 <%= f.price %>
+                           <%= @item.price %>
                         </td>
                         <td class="col-2">
                         　　<%= form_with(model: @cart_item, url:"cart_items/:id" ,method: :patch, local: true) do |f| %>
@@ -31,7 +31,7 @@
                             <% end %>
                         </td>
                         <td class="col-2">
-                            <%= f.price %>
+                            <%= @cart_item_price %>
                         </td>
                         <td class="col-2">
                         <%=  link_to cart_item_path(f.id),  method: :delete,class:"btn btn-danger ml-3"  do %>削除<% end %>
@@ -51,7 +51,7 @@
                     <div class="col-md-3 themed-grid-col ">
                         <table class="table table-bordered">
                             <th colspan="col">合計金額</th>
-                            <th colspan="col"></th>
+                            <th colspan="col"><%= @total_price %></th>
                         </table>
                     </div>
                     
