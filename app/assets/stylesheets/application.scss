@@ -13,17 +13,18 @@
  *= require_tree .
  *= require_self
  */
+ 
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
-@import "bootstrap";
 
 .paginate{
  text-align: center;
  @import "bootstrap";
 }
 
-p, h6, h5 {
+p, h6, h5, h3 {
   font-family: 'Kaisei Tokumin';
   color:#000000;
 }
+

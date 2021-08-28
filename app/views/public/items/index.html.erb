@@ -1,40 +1,88 @@
 
 <div class="album py-5 bg-light">
     <div class="container">
+         
+         <div class="texts-wrapper">
+   <div class="contents-title text-center">
+     <h3>商品一覧</h3>
+     <div class="row">
+       <% @items.each do |item| %>
+         <div class="col-12 col-md-6 col-lg-4">
+           <div class="card">
+             <%= link_to item_path(item) do %>
+             <%= attachment_image_tag item, :image, :fill, 270, 190, class: 'images', fallback: "no_image.jpg" %>
+               <div class="card-body">
+                 <p class="card-title"><%= item.name %></p>
+             <% end %>     
+                 <p class="card-text">￥<%= item.price.to_s(:delimited) %>
+               </div>
+           </div>
+         </div>
+       <% end %>
+     </div>
+   </div>
+ </div> 
+      
+        <!-- <div class="row justify-content-center">-->
         
-        <% @items.each do |item| %>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <!--<div class="card-deck" style="width:71rem">-->
+        <!--    <% @items.order('updated_at DESC').limit(6).each do |item| %>-->
+             <!--<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
+        <!--      <div class="col-12 col-md-6 col-lg-4 text-card-container">-->
+        <!--      <div class="card shadow-sm">-->
+        <!--        <%= link_to item_path(item) do %>-->
+        <!--          <%= attachment_image_tag item, :image, :fill, 270, 260, class: 'images', fallback: "no_image.jpg" %>-->
+        <!--        <div class="card-img-overlay">-->
+        <!--          <h5 class="card-title"><%= item.name %></h5>-->
+        <!--        <% end %>-->
+        <!--        <p class="card-text"><%= item.price.to_s(:delimited) %></p>-->
+        <!--        </div>-->
+        <!--      </div>-->
+        <!--    <% end %>-->
+          
+        <!--</div>-->
+        <!--</div>-->
+        
+        
+        
+        
+        
+        
+        <!--<% @items.each do |item| %>-->
+        <!--<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
             
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
-        </div>
+        <!--        <div class="col pt-5">-->
+        <!--            <div class="card shadow-sm">-->
+        <!--            <%= attachment_image_tag item, :image, size: '250x150', fallback: "no_image.jpg" %><br>-->
+        <!--            <div class="card-body">-->
+        <!--            <%= item.name %><br>-->
+        <!--            ¥<%= item.price %>-->
+        <!--            </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+                <!--<div class="col pt-5">-->
+                <!--    <div class="card shadow-sm">-->
+                <!--    <%= attachment_image_tag item, :image, size: '50x50', fallback: "no_image.jpg" %><br>-->
+                <!--    <div class="card-body">-->
+                <!--    <%= item.name %><br>-->
+                <!--    ¥<%= item.price %>-->
+                <!--    </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+                <!--<div class="col pt-5">-->
+                <!--    <div class="card shadow-sm">-->
+                <!--    <%= attachment_image_tag item, :image, size: '50x50', fallback: "no_image.jpg" %><br>-->
+                <!--    <div class="card-body">-->
+                <!--    <%= item.name %><br>-->
+                <!--    ¥<%= item.price %>-->
+                <!--    </div>-->
+                <!--    </div>-->
+                <!--</div>-->
+        <!--</div>-->
         
-        <% end %>
+        <!--<% end %>-->
+        
+        
     </div>
     <footer class="blog-footer"><p><%= paginate @items %></p></footer>
 </div>
