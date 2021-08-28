@@ -54,10 +54,12 @@
           <th>小計</th>
         </thead>
         <tbody>
+          <% @order_details.each do |order_details| %>
+          <td><%= order_details.item.name %></td>
+          <td><%= order_details.tax_in_price %></td>
+          <td>><%= order_details.quantity %></</td>
           <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <% end %>
         </tbody>
       </table>
     </div>
