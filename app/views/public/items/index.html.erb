@@ -1,48 +1,43 @@
-<div class="container">
-    <div class="row">
-        <div class="col-xs-2">
-            <div class="card shadow-sm">
-                    <div class="card-header">
-                        <h6 class="my-0 fw-normal">ジャンル検索</h6>
-                    </div>
-                
-                <div class="card-body">
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>ケーキ</li>
-                        <li>焼き菓子</li>
-                        <li>プリン</li>
-                        <li>キャンディ</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+
+<div class="album py-5 bg-light">
+    <div class="container">
+        
         <% @items.each do |item| %>
-        <div class="col-md-9 offset-md-1 d-flex">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
             
-                <div class="col-sm-3">
+                <div class="col pt-5">
+                    <div class="card shadow-sm">
                     <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
+                    <div class="card-body">
                     <%= item.name %><br>
                     ¥<%= item.price %>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col pt-5">
+                    <div class="card shadow-sm">
                     <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
+                    <div class="card-body">
                     <%= item.name %><br>
                     ¥<%= item.price %>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-sm-3">
+                <div class="col pt-5">
+                    <div class="card shadow-sm">
                     <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
+                    <div class="card-body">
                     <%= item.name %><br>
                     ¥<%= item.price %>
-                </div>
-                <div class="col-sm-3">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
+                    </div>
+                    </div>
                 </div>
         </div>
         
         <% end %>
-        <%= paginate @items %>
-
     </div>
+    <footer class="blog-footer"><p><%= paginate @items %></p></footer>
 </div>
+        
+        
+
