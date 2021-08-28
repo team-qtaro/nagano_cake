@@ -4,7 +4,7 @@
       <div class="ec-order-new-main">
         <h2><span class="badge bg-secondary text-white mb-3">注文情報入力</span></h2>
         <div class="field">
-          <%= form_for(@order,url: "/orders/confirm" ) do |f| %>
+          <%= form_with(model: @order,url: "/orders/confirm",local:true ) do |f| %>
             <div class="form-group">
               <label>支払方法</label>
                 <div class="radio">
