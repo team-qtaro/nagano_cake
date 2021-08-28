@@ -18,11 +18,25 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @cart_items = current_customer.cart_items
+
     @order = Order.new(orders_params)
     @order.customer_id = current_customer.id
-    @customer = current_customer
+    @order.shipping_fee = 800
+    @order.total_payment = total_payment(@cart_items) + @order.shipping_fee
+
     if @order.save
-       redirect_to complete_orders_path
+      @cart_items.each do |cart_item|
+        @order_detail = OrderDetail.new
+        @order_detail.order_id = @order.id
+        @order_detail.item_id = cart_item.item.id
+        @order_detail.quantity = cart_item.quantity
+        @order_detail.tax_in_price = cart_item.quantity * (cart_item.item.price * 1.1)
+        @order_detail.making_status = 1
+        @order_detail.save
+      end
+      @cart_items.destroy_all
+      redirect_to complete_orders_path
     else
       render :new
     end
@@ -33,6 +47,14 @@ class Public::OrdersController < ApplicationController
 
   private
   def orders_params
-     params.require(:order).permit(:customer_id,:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
+    params.require(:order).permit(:customer_id,:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
+  end
+
+  def total_payment(cart_items)
+    sum = 0
+    cart_items.each do |cart_item|
+      sum += (cart_item.item.price * 1.1) * cart_item.quantity
+    end
+    sum.to_i
   end
 end
