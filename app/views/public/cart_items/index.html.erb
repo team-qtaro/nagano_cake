@@ -29,7 +29,6 @@
                           <% end %></td>
 
                         <td><%= cart_item.item.price*cart_item.quantity %> </td>
-
                         <td><%= link_to " 削除する",cart_item_path(cart_item), method: :delete, local: true, data: {confirm: "#{cart_item.item.name}を削除してよろしいですか？"}, class: "glyphicon glyphicon-trash btn btn-danger" %></td>
 
 
@@ -39,23 +38,20 @@
 
 
             </table>
-            <div class="row mb-3 mt-3">
-                    <div>
-                        <%= link_to root_path,class:"btn btn-primary" do %>買い物を続ける<% end %>
-                    </div>
-                    <div class="col-md-7 themed-grid-col">
-
-                    </div>
-
+            <div class="row mb-3 mt-3 d-flex justify-content-end">
                     <div class="col-md-3 themed-grid-col ">
                         <table class="table table-bordered">
                             <th colspan="col">合計金額</th>
-                            <th colspan="col"><%= %></th>
+                            <th colspan="col">¥<%= @total_price %></th>
                         </table>
                     </div>
+            </div>
+              <div class="box d-flex justify-content-end">
+                    <%= link_to root_path,class:"btn btn-primary mr-3" do %>買い物を続ける<% end %>
+                    <%= form_with model: @order, url:  new_order_path,method: :get, local: true do |f| %>
+                    <%= f.hidden_field :customer_id, value: @cart_item.id %>
+                    <%= f.submit "情報入力に進む",class: "btn btn-success" %>
+                    <% end %>
+                    </div>
 
-            </div>
-            <div>
-            <%= link_to new_order_path,class:"btn btn-success" do %>情報入力に進む<% end %>
-            </div>
 </div>
