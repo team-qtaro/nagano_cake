@@ -10,11 +10,11 @@ class Public::ItemsController < ApplicationController
     @items = Item.all
     @cart_item = CartItem.new
   end
-  
+
   def update
-    
+
   end
-  
+
   private
   def image_params
     params.permit(:image)

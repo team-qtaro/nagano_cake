@@ -1,6 +1,6 @@
 <div class="album py-5 bg-light">
     <div class="container">
-         
+
          <div class="texts-wrapper">
    <div class="contents-title text-center">
      <h3>商品一覧</h3>
@@ -12,7 +12,7 @@
              <%= attachment_image_tag item, :image, :fill, 270, 190, class: 'images', fallback: "no_image.jpg" %>
                <div class="card-body">
                  <p class="card-title"><%= item.name %></p>
-             <% end %>     
+             <% end %>
                  <p class="card-text">￥<%= item.price.to_s(:delimited) %>
                </div>
            </div>
@@ -20,11 +20,11 @@
        <% end %>
      </div>
    </div>
- </div> 
-   
+ </div>
+
     </div>
     <footer class="blog-footer"><p><%= paginate @items %></p></footer>
 </div>
-        
-        
+
+
 
