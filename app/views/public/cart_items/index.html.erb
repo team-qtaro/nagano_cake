@@ -14,8 +14,8 @@
                         <th scope="5"></th>
                     </tr>
                 </thead>
-     
-                
+
+
                     <% @cart_items.each do |cart_item| %>
                       <tr>
                         <td>
@@ -27,17 +27,17 @@
                           <%= f.number_field :quantity,value: cart_item.quantity %>
                           <%= f.submit "変更", class: 'btn btn-success btn-sm' %>
                           <% end %></td>
-                
+
                         <td><%= cart_item.item.price*cart_item.quantity %> </td>
-                
+
                         <td><%= link_to " 削除する",cart_item_path(cart_item), method: :delete, local: true, data: {confirm: "#{cart_item.item.name}を削除してよろしいですか？"}, class: "glyphicon glyphicon-trash btn btn-danger" %></td>
-                
-                
-                
+
+
+
                       </tr>
                     <% end %>
-    
-    
+
+
             </table>
             <div class="row mb-3 mt-3">
                     <div>

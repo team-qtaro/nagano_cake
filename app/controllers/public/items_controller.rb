@@ -1,6 +1,6 @@
 class Public::ItemsController < ApplicationController
   def index
-    @items = Item.all.page(params[:page]).per(2)
+    @items = Item.all.page(params[:page]).per(6)
   end
 
   def show
@@ -8,11 +8,11 @@ class Public::ItemsController < ApplicationController
     @items = Item.all
     @cart_item = CartItem.new
   end
-  
+
   def update
-    
+
   end
-  
+
   private
   def image_params
     params.permit(:image)

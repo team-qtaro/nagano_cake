@@ -30,9 +30,9 @@
                     </tr>
                     <tr>
                       <div class="radio">
-                        <%#= radio_button_tag :address_number ,1%>
-                         <%#= label_tag :address_number, "登録済み住所から選択", value: 1 %>
-                         <%#= f.collection_select(:address_id, @addresses, :id, :full_name, include_blank: '選択してください') %>
+                        <%= radio_button_tag :address_number ,1%>
+                         <%= label_tag :address_number, "登録済み住所から選択", value: 1 %>
+                         <%#= f.collection_select(:address_id, @addresses, :id, :full_address, include_blank: '選択してください') %>
                       </div>
                     </tr>
                     <tr>
