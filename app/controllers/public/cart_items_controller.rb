@@ -1,16 +1,8 @@
 class Public::CartItemsController < ApplicationController
     def create
       @cart_item = CartItem.new(cart_item_params)
-<<<<<<< HEAD
-
-      @cart_item.customer_id=current_customer.id
-
-      @cart_items=current_customer.cart_items.all
-
-=======
       @cart_item.customer_id=current_customer.id
       @cart_items=current_customer.cart_items.all
->>>>>>> 6d4c1301e70aa8830f390bc26f94adb2f302bd50
       @cart_item.save
 
         redirect_to cart_items_path,notice:"カートに商品が入りました"
@@ -46,7 +38,7 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
     params.required(:cart_item).permit(:quantity, :item_id)
   end
-  
+
   def item_params
       params.required(:cart_item).permit(:quantity)
   end
