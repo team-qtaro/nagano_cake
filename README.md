@@ -1,6 +1,6 @@
 #使用方法（インストール）
 
-$ git clone git@github.com:utopeer/NaganoCake.git(SSH)
+$ git clone git@github.com:team-qtaro/nagano_cake.git
 
 $ cd nagano_cake
 
