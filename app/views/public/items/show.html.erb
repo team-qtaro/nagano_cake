@@ -1,22 +1,7 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-2">
-            <div class="card mb-4 shadow-sm">
-                    <div class="card-header">
-                        <h6 class="my-0 fw-normal">ジャンル検索</h6>
-                    </div>
-                
-                <div class="card-body">
-                    <ul class="list-unstyled mt-3 mb-4">
-                        <li>ケーキ</li>
-                        <li>焼き菓子</li>
-                        <li>プリン</li>
-                        <li>キャンディ</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-9 offset-md-1 d-flex">
+    <div class="row ">
+
+        <div class="col-md-9 offset-md-2 d-flex pt-5">
             <div class="col-3">
                 <%= attachment_image_tag @item, :image, size: '100x100', fallback: "no_image.jpg" %>
                 

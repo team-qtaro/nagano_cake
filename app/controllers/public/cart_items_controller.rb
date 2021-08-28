@@ -33,7 +33,7 @@ class Public::CartItemsController < ApplicationController
     end
     
     def reset
-        @cart_items = Item.all
+        @cart_items = current_customer.cart_items.all
         @cart_items.destroy_all
         redirect_to cart_items_path
     end

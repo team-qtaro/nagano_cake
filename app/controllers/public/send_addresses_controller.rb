@@ -14,6 +14,7 @@ class Public::SendAddressesController < ApplicationController
             @send_addresses = SendAddress.all
             redirect_to send_addresses_path
         end
+        debugger
     end
 
     def destroy

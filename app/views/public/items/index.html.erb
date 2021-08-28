@@ -1,43 +1,40 @@
-
-<div class="album py-5 bg-light">
-    <div class="container">
-        
-        <% @items.each do |item| %>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
-                <div class="col pt-5">
-                    <div class="card shadow-sm">
-                    <%= attachment_image_tag @item, :image, size: '50x50', fallback: "no_image.jpg" %><br>
-                    <div class="card-body">
-                    <%= item.name %><br>
-                    ¥<%= item.price %>
-                    </div>
-                    </div>
-                </div>
+<main>
+<div class="row justify-content-center mt-4">
+    <div class="container ">
+        <div class="d-flex">
+        <div class="h3 ">商品一覧</div>
+        <div class="pl-3 pt-2">(全<%= @items.count %>件）</div>
         </div>
+        <% @items.each do |item| %>
+    
+            
+                <div class="row justify-content-center mt-3">
+                    <div class="col-7">
+                    <div class="card shadow-lg ">
+                    <%= attachment_image_tag @item, :image, size: '150x150', fallback: "no_image.jpg" %><br>
+                    <div class="card-body text-right ">
+                    <%= link_to item.name,item_path(item.id) %><br>
+                    ¥<%= item.price %>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+ 
+        
         
         <% end %>
+         <div class="h6">
+        
+        </div> 
     </div>
-    <footer class="blog-footer"><p><%= paginate @items %></p></footer>
-</div>
+    
+    </div>
+  </main>
+  <footer class="my-5 pt-5 text-muted text-center">
+      <p class="mb-1 "><%= paginate @items %></p>
+  </footer>
+    
+
         
         
 
