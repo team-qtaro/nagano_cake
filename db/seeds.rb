@@ -93,11 +93,4 @@ Item.create!(
 	is_stopped: 'false',
 	image: File.open('./app/assets/images/baked2.jpg')
 )
-Order.create!(
-	customer_id: '1',
-	shipping_postal_code: '1111111',
-	shipping_address: '東京',
-	shipping_name: '間瀬雅',
-	payment_method: 'クレジットカード',
-	status: '1',
-)
+

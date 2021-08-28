@@ -2,7 +2,7 @@ class Public::OrdersController < ApplicationController
   def new
     @order = Order.new
     @customer = current_customer
-    @addresses = current_customer.send_addresses
+    # @addresses = current_customer.send_addresses
   end
 
   def index
@@ -18,6 +18,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(orders_params)
     @customer = current_customer
     @cart_items = current_customer.cart_items
+    @order.shipping_fee = 800
     if params[:address_number] == "0"
        @address_postal_codo = @customer.postal_code
        @address_location = @customer.address
@@ -31,8 +32,6 @@ class Public::OrdersController < ApplicationController
       @address_location = @order.shipping_address
       @address_name = @order.shipping_name
     end
-    @cart_items = current_customer.cart_items
-    @total = 0
   end
 
   def create
@@ -63,7 +62,15 @@ class Public::OrdersController < ApplicationController
 
   private
   def orders_params
-     params.require(:order).permit(:customer_id,:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
+    params.require(:order).permit(:customer_id,:shipping_postal_code,:payment_method,:shipping_address,:shipping_name)
+  end
+
+  def total_payment(cart_items)
+    sum = 0
+    cart_items.each do |cart_item|
+      sum += (cart_item.item.price * 1.1) * cart_item.quantity
+    end
+    sum.to_i
   end
 
   def total_payment(cart_items)
