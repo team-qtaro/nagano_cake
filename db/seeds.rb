@@ -53,13 +53,16 @@ Item.create!(
 	description: '数種のチーズの特性を活かしてブレンドし焼き上げたニューヨークチーズケーキ',
 	price: '420',
 	is_stopped: 'false',
-)
+	image: File.open('./app/assets/images/cake1.jpg')
+	)
+
 Item.create!(
   genre_id: '1',
 	name: '焼き栗モンブラン',
 	description: 'なめらかな生クリームに濃厚な焼き栗ペーストをたっぷり使用した栗の風味を味わうモンブラン',
 	price: '500',
 	is_stopped: 'false',
+	image: File.open('./app/assets/images/cake2.jpg')
 )
 Item.create!(
   genre_id: '2',
@@ -67,6 +70,7 @@ Item.create!(
 	description: 'ラズベリーやオレンジ、メロンなどの色鮮やかなフルーツと共に、バニラ香るプリンが楽しめる',
 	price: '250',
 	is_stopped: 'false',
+	image: File.open('./app/assets/images/pudding1.jpg')
 )
 Item.create!(
   genre_id: '2',
@@ -74,6 +78,7 @@ Item.create!(
 	description: '北海道産生クリームでまろやかに仕上げているので、苦味が優しく、お子様でも美味しく召し上がって頂けます',
 	price: '330',
 	is_stopped: 'false',
+	image: File.open('./app/assets/images/pudding2.jpg')
 )
 Item.create!(
   genre_id: '3',
@@ -81,6 +86,7 @@ Item.create!(
 	description: '素材の味を活かしたジャムやコンポート、果実のピューレを使用したクリームをサンドしています',
 	price: '270',
 	is_stopped: 'false',
+	image: File.open('./app/assets/images/baked1.jpg')
 )
 Item.create!(
   genre_id: '3',
@@ -88,5 +94,6 @@ Item.create!(
 	description: 'バターとバニラの風味豊かなしっとり食感のマドレーヌ',
 	price: '180',
 	is_stopped: 'false',
+	image: File.open('./app/assets/images/baked2.jpg')
 )
 

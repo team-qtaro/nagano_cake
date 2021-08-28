@@ -16,4 +16,10 @@
  @import "bootstrap";
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
-@import "bootstrap";
+ @import "bootstrap";
+
+
+p, h6, h5 {
+  font-family: 'Kaisei Tokumin';
+  color:#000000;
+}

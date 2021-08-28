@@ -31,17 +31,19 @@ Rails.application.routes.draw do
     resources :items
   end
 
-  devise_for :customers, controllers: {
-    sessions: 'public/sessions',
-    passwords: 'public/passwords',
-    registrations: 'public/registrations'
-  }
-
   namespace :admin do
     resources :genres, only: [:index,:new,:create,:edit,:update]
     resources :orders, only: [:index,:show]
     resources :items, only: [:index, :new, :create, :show, :edit, :resources, :update]
-    resources :customers, only: [:index, :show, :new, :update]
+    get 'customers' => 'customers#index'
+    get 'customers/:id' => 'customers#show', as: "customer_show"
+    get 'customers/:id/edit' => 'customers#edit', as: "customer_edit"
+    patch 'customers/:id' => 'customers#update', as: "customer_update"
   end
 
+devise_for :customers, controllers: {
+    sessions: 'public/sessions',
+    passwords: 'public/passwords',
+    registrations: 'public/registrations'
+  }
 end
