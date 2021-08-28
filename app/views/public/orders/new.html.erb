@@ -21,7 +21,8 @@
                   <tbody>
                     <tr>
                       <div class="radio">
-                        <label><%= radio_button_tag("_add", "myadd") %>ご自身の住所</label>
+                        <%= radio_button_tag :address_number ,0 ,checked: true %>
+                        <%= label_tag :address_number, "ご自身の住所", value: 0 %>
                         〒<%= @customer.postal_code %><br>
                           <%= @customer.address %><br>
                           <%= @customer.last_name %><%= @customer.first_name %>
@@ -29,13 +30,15 @@
                     </tr>
                     <tr>
                       <div class="radio">
-                        <label><%= radio_button_tag("_add", "readd") %>登録住所から選択</label>
-
+                        <%= radio_button_tag :address_number ,1%>
+                         <%= label_tag :address_number, "登録済み住所から選択", value: 1 %>
+                         <%= f.collection_select(:address_id, @addresses, :id, :send_name, include_blank: '選択してください') %>
                       </div>
                     </tr>
                     <tr>
                       <div class="radio">
-                        <label><%= radio_button_tag("_add", "newadd") %>新しい住所</label>
+                        <%= radio_button_tag :address_number ,2 %>
+                        <%= label_tag :address_number,"新しい住所" ,value: 2 %>
                         <label>郵便番号（ハイフンなし）</label>
                         <%= f.text_field:shipping_postal_code, placeholder: "000000"%>
                         <label>住所</label>

@@ -12,10 +12,12 @@
           </tr>
         </thead>
         <tbody>
+          <%# @cart_items.each do |cart_item| %>
           <td></td>
           <td></td>
           <td></td>
           <td></td>
+          <%# end %>
         </tbody>
       </table>
     </div>
@@ -28,11 +30,11 @@
             </tr>
             <tr>
               <th>商品合計</th>
-              <td></td>
+              <td><%= @total%></td>
             </tr>
             <tr>
               <th>請求金額</th>
-              <td></td>
+              <td><%= @total+800%></td>
             </tr>
           </thead>
         </table>
