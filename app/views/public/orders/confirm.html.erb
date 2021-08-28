@@ -1,0 +1,74 @@
+<div class="container">
+<h2><span class="badge bg-secondary text-white mb-3">注文情報確認</span></h2>
+  <div class='row'>
+    <div class='col-md-7 '>
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>商品名</th>
+            <th>単価</th>
+            <th>数量</th>
+            <th>小計</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <% @cart_items.each do |cart_item| %>
+          <tr>
+          <td><%= cart_item.item.name %></td>
+          <td><%= cart_item.item.price %></td>
+          <td><%= cart_item.quantity %></td>
+          <td><%= cart_item.item.price*cart_item.quantity %></td>
+          <% end %>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+      <div class='col-md-3'>
+         <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr>
+              <th>送料</th>
+              <td><%= @order.shipping_fee %></td>
+            </tr>
+            <tr>
+              <th>商品合計</th>
+              <td><%= @order.total_payment %></td>
+            </tr>
+            <tr>
+              <th>請求金額</th>
+              <td><%= @order.shipping_fee+@order.total_payment %></td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+  </div>
+  <h4>支払い方法</h4>
+    <p><%= @order.payment_method %></p>
+  <h4>お届け先</h4>
+    <p>
+      <%= @address_postal_codo %>
+      <%= @address_name %>
+      <%= @address_location %>
+   </p>
+  <%= form_with model: @order,url: "/orders", method: :post, local: true do |f| %>
+    <%= f.hidden_field :customer_id, value: current_customer.id %>
+    <%= f.hidden_field :shipping_fee, value: 800 %>
+    <%= f.hidden_field :total_payment, value: @total_payment %>
+    <% if params[:address_number] == "0" %>
+      <%= f.hidden_field :shipping_postal_code, value: @customer.postal_code %>
+      <%= f.hidden_field :shipping_address,value: @customer.address %>
+      <%= f.hidden_field :shipping_name,value: @customer.full_name %>
+    <%# elsif params[:address_number] == "1" %>
+      <%#= f.hidden_field :postal_code, value: @addresses %>
+      <%#= f.hidden_field :address_location,value: @addresses %>
+      <%#= f.hidden_field :name,value: @addresses %>
+    <% elsif params[:address_number] == "2" %>
+      <%= f.hidden_field :shipping_postal_code, value: @order.shipping_postal_code %>
+      <%= f.hidden_field :shipping_address,value: @order.shipping_address%>
+      <%= f.hidden_field :shipping_name,value: @order.shipping_name %>
+    <% end %>
+    <%=f.submit '確認',class: "btn btn-primary" %>
+  <% end %>
+</div>

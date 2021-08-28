@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+.paginate{
+ text-align: center;
+}
+
+p, h6, h5, h3, h2 {
+  font-family: 'Kaisei Tokumin';
+  color:#000000;
+}
+
+.card {
+  margin: 0 auto 60px;
+  max-width: 376px;
+  height: 370px;
+}
+
+.jumbotron {
+
+  background-image: url("/images/top_image2.jpg");
+  background-size: cover;
+  background-position: center 80%;
+}
