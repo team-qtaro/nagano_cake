@@ -93,4 +93,3 @@ Item.create!(
 	is_stopped: 'false',
 	image: File.open('./app/assets/images/baked2.jpg')
 )
-

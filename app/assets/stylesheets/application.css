@@ -20,14 +20,12 @@
 
 .paginate{
  text-align: center;
- @import "bootstrap";
 }
 
 p, h6, h5, h3, h2 {
   font-family: 'Kaisei Tokumin';
   color:#000000;
 }
-
 
 .card {
   margin: 0 auto 60px;
