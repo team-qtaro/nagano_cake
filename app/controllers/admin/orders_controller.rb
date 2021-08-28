@@ -5,8 +5,18 @@ class Admin::OrdersController < ApplicationController
   end
 
   def show
-    @order = current_user.orders
-    @order_items = current.user.orders.order_details
+    @order = Order.find(params[:id])
+    @order_items = @order.order_details
   end
 
+  def update
+    @order = Order.find(params[:id])
+    @order.update(order_params)
+    redirect_to admin_order_path(@order.id)
+  end
+
+  private
+  def order_params
+    params.require(:order).permit(:status)
+  end
 end

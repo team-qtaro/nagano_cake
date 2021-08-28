@@ -41,7 +41,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(orders_params)
     @order.customer_id = current_customer.id
     @order.shipping_fee = 800
-    @order.total_payment = total_payment(@cart_items) + @order.shipping_fee
+    @order.total_payment = total_payment(@cart_items)
 
     if @order.save
       @cart_items.each do |cart_item|
@@ -49,7 +49,7 @@ class Public::OrdersController < ApplicationController
         @order_detail.order_id = @order.id
         @order_detail.item_id = cart_item.item.id
         @order_detail.quantity = cart_item.quantity
-        @order_detail.tax_in_price = cart_item.quantity * (cart_item.item.price * 1.1)
+        @order_detail.tax_in_price = cart_item.item.price * 1.1
         @order_detail.making_status = 1
         @order_detail.save
       end

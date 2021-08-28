@@ -26,7 +26,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres, only: [:index,:new,:create,:edit,:update]
-    resources :orders, only: [:index,:show]
+    resources :orders, only: [:index,:show,:update]
+    resources :order_details, only: [:update]
     resources :items, only: [:index, :new, :create, :show, :edit, :resources, :update]
     get 'customers' => 'customers#index'
     get 'customers/:id' => 'customers#show', as: "customer_show"
