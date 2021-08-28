@@ -11,18 +11,15 @@ Admin.create!(
   password: 'admin1',
 )
 
-
-
-
 Customer.create!(
-	email: 'customer1@naganocake.com',
-	password: 'customer1',
-	last_name: '長野',
-	first_name: '景子',
-	last_name_kana: 'ナガノ',
-	first_name_kana: 'ケイコ',
-	postal_code: '1234567',
-	address: '東京都渋谷区宇田川町21-6',
+  email: 'customer1@naganocake.com',
+  password: 'customer1',
+  last_name: '長野',
+  first_name: '景子',
+  last_name_kana: 'ナガノ',
+  first_name_kana: 'ケイコ',
+  postal_code: '1234567',
+  address: '東京都渋谷区宇田川町21-6',
   telephone_number: '09012345678',
 )
 Customer.create!(
@@ -95,5 +92,13 @@ Item.create!(
 	price: '180',
 	is_stopped: 'false',
 	image: File.open('./app/assets/images/baked2.jpg')
+)
+Order.create!(
+	customer_id: '1',
+	shipping_postal_code: '1111111',
+	shipping_address: '東京',
+	shipping_name: '間瀬雅',
+	payment_method: 'クレジットカード',
+	status: '1',
 )
 

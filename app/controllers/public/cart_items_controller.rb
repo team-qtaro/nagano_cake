@@ -1,8 +1,19 @@
 class Public::CartItemsController < ApplicationController
+    def create
+      @cart_item = CartItem.new(cart_item_params)
+      
+      @cart_item.customer_id=current_customer.id
+      
+      @cart_items=current_customer.cart_items.all
+     
+      @cart_item.save
+
+        redirect_to cart_items_path,notice:"カートに商品が入りました"
+    end
     def index
-        @cart_items = CartItem.all
-        @item = Item.find_by(params[:id])
-        @total_price = Item.all.sum(:price)
+        @cart_items = current_customer.cart_items.all 
+        @total_price = @cart_items.inject(0) { |sum, item| sum + item.sum_of_price }
+        @cart_item=CartItem.new
     end
     
     def destroy
@@ -16,7 +27,7 @@ class Public::CartItemsController < ApplicationController
     end
     
     def update
-        @cart_item = CartItem.all
+        @cart_item = CartItem.where(params[:item_id])
         @cart_item.update(cart_item_params)
         redirect_to cart_items_path
     end
@@ -28,6 +39,6 @@ class Public::CartItemsController < ApplicationController
     end
     
   def cart_item_params
-    params.permit(:quantity)
+    params.required(:cart_item).permit(:quantity, :item_id)
   end
 end

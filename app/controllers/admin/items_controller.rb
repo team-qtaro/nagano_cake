@@ -32,12 +32,12 @@ class Admin::ItemsController < ApplicationController
      render :edit
     end
   end
-  
+
   private
 
   def item_params
     params.require(:item).permit(:name, :genre_id, :image, :description, :price, :is_stopped)
   end
-  
-  
+
+
 end

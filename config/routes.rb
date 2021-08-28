@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
+  scope module: :public do
+    resources :orders,only: [:index,:show,:new,:create] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
+  end
 
-  devise_for :admins, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
-  }
+  namespace :admin do
+    resources :genres,only: [:index,:new,:create,:edit,:update]
+  end
+
 
   scope module: :public do
     root to: 'homes#top'
     get "about" => "homes#about", as: "about"
-    
+
     get 'customers/mypage' => 'customers#show'
     get 'customers/edit' => 'customers#edit'
     patch 'customers' => 'customers#update'
@@ -22,12 +29,12 @@ Rails.application.routes.draw do
         get 'complete'
       end
     post 'orders/confirm' => 'orders#create'
-  end
+    end
 
     resources :send_addresses
     resources :cart_items
     delete 'cart_items' => 'cart_items#reset'
-    
+
     resources :items
   end
 
@@ -41,9 +48,16 @@ Rails.application.routes.draw do
     patch 'customers/:id' => 'customers#update', as: "customer_update"
   end
 
-devise_for :customers, controllers: {
+
+  devise_for :admins, :skip =>[:registrations, :passwords], controllers: {
+    sessions: 'admin/sessions',
+  }
+
+  devise_for :customers, controllers: {
+
     sessions: 'public/sessions',
     passwords: 'public/passwords',
     registrations: 'public/registrations'
   }
+
 end
