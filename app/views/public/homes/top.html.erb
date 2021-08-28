@@ -2,10 +2,10 @@
  
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
-      <!--<div class="row">-->
+     
            <h5>ようこそ、ながのCAKEへ！</h5>
               <p>このサイトは、ケーキ販売のECサイトになります。会員でない方も、商品の閲覧はできますが、購入には会員登録が必要になります。</p>
-      <!--</div>-->
+      
     </div>
   </div>
   
@@ -14,7 +14,6 @@
    <div class="contents-title">
         <h3>新着商品</h3>
         
-        <!--<div class="card-deck" style="width:71rem">-->
         <div class="row no-gutters">
             <% @items.order('updated_at DESC').limit(4).each do |item| %>
               <div class="col-12 col-md-6 col-lg-3">
@@ -29,35 +28,7 @@
               </div>
               </div>
             <% end %>
-          
- <!--     <div class="container">-->
-         
- <!--        <div class="texts-wrapper">-->
- <!--  <div class="contents-title text-center">-->
- <!--    <h3>商品一覧</h3>-->
- <!--    <div class="row">-->
- <!--      <% @items.each do |item| %>-->
- <!--        <div class="col-12 col-md-6 col-lg-4">-->
- <!--          <div class="card">-->
- <!--            <%= link_to item_path(item) do %>-->
- <!--            <%= attachment_image_tag item, :image, :fill, 270, 190, class: 'images', fallback: "no_image.jpg" %>-->
- <!--              <div class="card-body">-->
- <!--                <p class="card-title"><%= item.name %></p>-->
- <!--            <% end %>     -->
- <!--                <p class="card-text">￥<%= item.price.to_s(:delimited) %>-->
- <!--              </div>-->
- <!--          </div>-->
- <!--        </div>-->
- <!--      <% end %>-->
- <!--    </div>-->
- <!--  </div>-->
- <!--</div> -->
-          
-          
-          
-          
-          
-          
+
         </div>
         <h6 class="col">
           <%= link_to "全ての商品を見る", items_path %>
