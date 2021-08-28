@@ -6,8 +6,8 @@
         
       
         <div class="card shadow-sm">
-          <%#= image_tag 'top_image.jpg', size: "624x416" %>
-          <img class="d-block mx-auto img-fluid w-80" src="assets/top_image2.jpg" alt="ようこそ">
+          <%= image_tag 'top_image.jpg', size: "624x416" %>
+          <!--<img class="d-block mx-auto img-fluid w-80" src="assets/top_image2.jpg" alt="ようこそ">-->
           <div class="card-img-overlay">
             <h5 class="card-title">ようこそ、ながのCAKEへ！</h5>
               <p class="card-text">このサイトは、ケーキ販売のECサイトになります。会員でない方も、商品の閲覧はできますが、購入には会員登録が必要になります。</p>
@@ -31,7 +31,7 @@
                 <div class="card-img-overlay">
                   <h5 class="card-title"><%= item.name %></h5>
                 <% end %>
-                <p class="card-text"><%= item.price.to_s(:delimited) %></p>
+                <p class="card-text">￥<%= item.price.to_s(:delimited) %></p>
                 </div>
               </div>
             <% end %>

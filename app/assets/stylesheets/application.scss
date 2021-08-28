@@ -23,8 +23,13 @@
  @import "bootstrap";
 }
 
-p, h6, h5, h3 {
+p, h6, h5, h3, h2 {
   font-family: 'Kaisei Tokumin';
   color:#000000;
 }
 
+.card {
+  margin: 0 auto 60px;
+  max-width: 376px;
+  height: 370px;
+}
