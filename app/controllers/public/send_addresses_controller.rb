@@ -7,7 +7,6 @@ class Public::SendAddressesController < ApplicationController
 
     def create
         @send_address = SendAddress.new(send_addresses_params)
-        
         @send_addresses = SendAddress.all
         if @send_address.save
             redirect_to send_addresses_path
@@ -15,7 +14,6 @@ class Public::SendAddressesController < ApplicationController
             @send_addresses = SendAddress.all
             redirect_to send_addresses_path
         end
-        
     end
 
     def destroy
@@ -39,6 +37,6 @@ class Public::SendAddressesController < ApplicationController
 
     private
     def send_addresses_params
-        params.require(:send_address).permit(:send_postal_code,:send_name,:send_address,:customer_id)
+        params.require(:send_address).permit(:send_postal_code,:send_name,:send_address)
     end
 end
