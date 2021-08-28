@@ -33,3 +33,9 @@ p, h6, h5, h3, h2 {
   max-width: 376px;
   height: 370px;
 }
+
+.jumbotron {
+  // background-image: url("/top_image2.jpg");
+  background-size: cover;
+  background-position: center 60%;
+}
