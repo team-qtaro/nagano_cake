@@ -101,4 +101,3 @@ Order.create!(
 	payment_method: 'クレジットカード',
 	status: '1',
 )
-
